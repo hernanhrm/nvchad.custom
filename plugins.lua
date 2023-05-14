@@ -1,26 +1,32 @@
+local overrides = require "custom.configs.overrides"
 
 local plugins = {
   {
     "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "gopls",
-      },
-    },
+    opts = overrides.mason,
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    opts = overrides.treesitter,
+  },
+
+  {
+    "nvim-tree/nvim-tree.lua",
+    opts = overrides.nvimtree,
   },
   {
     "neovim/nvim-lspconfig",
-    config = function ()
-      require("plugins.configs.lspconfig")
-      require("custom.configs.lspconfig")
-    end
+    config = function()
+      require "plugins.configs.lspconfig"
+      require "custom.configs.lspconfig"
+    end,
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
-    ft = "go",
-    opts = function ()
-      return require("custom.configs.null-ls")
-    end
+    ft = { "lua", "go", "python", "html", "css", "javascript", "sql" },
+    opts = function()
+      return require "custom.configs.null-ls"
+    end,
   },
   {
     "mfussenegger/nvim-dap",
@@ -29,20 +35,30 @@ local plugins = {
     "leoluz/nvim-dap-go",
     ft = "go",
     dependencies = "mfussenegger/nvim-dap",
-    config = function (_, opts)
+    config = function(_, opts)
       require("dap-go").setup(opts)
       -- require("core.utils").load_mappings("dap_go")
-    end
+    end,
   },
   {
     "olexsmir/gopher.nvim",
     ft = "go",
-    config = function (_, opts)
+    config = function(_, opts)
       require("gopher").setup(opts)
     end,
-    build = function ()
-      vim.cmd([[silent! GoInstallDeps]])
-    end
+    build = function()
+      vim.cmd [[silent! GoInstallDeps]]
+    end,
+  },
+  {
+    "ThePrimeagen/harpoon",
+    lazy = false,
+    dependencies = "nvim-lua/plenary.nvim",
+    priority = 0,
+  },
+  {
+    "folke/trouble.nvim",
+    dependencies = "nvim-tree/nvim-web-devicons",
   },
 }
 
