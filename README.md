@@ -1,2 +1,1 @@
 # nvchad.custom
-# nvchad.custom
