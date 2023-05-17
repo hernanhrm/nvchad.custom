@@ -23,7 +23,7 @@ local plugins = {
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
-    ft = { "lua", "go", "python", "html", "css", "javascript", "sql" },
+    ft = { "lua", "go", "python", "html", "css", "json", "javascript", "sql" },
     opts = function()
       return require "custom.configs.null-ls"
     end,
@@ -59,6 +59,20 @@ local plugins = {
   {
     "folke/trouble.nvim",
     dependencies = "nvim-tree/nvim-web-devicons",
+  },
+  {
+    "github/copilot.vim",
+    lazy = false,
+  },
+  {
+    "folke/zen-mode.nvim",
+    config = function()
+      require("zen-mode").setup()
+    end,
+  },
+  {
+    "NvChad/nvterm",
+    enabled = false,
   },
 }
 

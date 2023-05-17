@@ -40,6 +40,7 @@ M.mason = {
     "html-lsp",
     "typescript-language-server",
     "prettier",
+    "eslint-lsp",
 
     -- golang stuff
     "gopls",

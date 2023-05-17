@@ -5,6 +5,7 @@ local M = {}
 M.disabled = {
   n = {
     ["<A-h>"] = "",
+    ["<A-i>"] = "",
     ["<leader>h"] = "",
     ["<C-a>"] = "",
     ["<C-n>"] = "",
@@ -21,7 +22,7 @@ M.nvimtree = {
 M.custom = {
   n = {
     ["<C-f>"] = { "<cmd>silent !tmux neww tmux-sessionizer<CR>", "Search tmux-sessionizer projects" },
-    ["<leader>s"] = { "<cmd>silent !tmux neww tmux-sessionizer<CR>", "Search and replace word in cursor" },
+    ["<leader>s"] = { "[[:%s/<<C-r><C-w>>/<C-r><C-w>/gI<Left><Left><Left>]]", "Search and replace word in cursor" },
     ["<leader>x"] = { "<cmd>!chmod +x %<CR>", "Set execute permissions to current file", opts = { silent = true } },
 
     ["<leader>d"] = { '"_d', "Delete to system clipboard" },
@@ -58,7 +59,7 @@ M.lspconfig = {
       "Go to references",
     },
     ["<leader>lds"] = {
-      "<cmd> telescope lsp_document_symbols<CR>",
+      "<cmd> Telescope lsp_document_symbols<CR>",
       "See buffer symbols",
     },
   },

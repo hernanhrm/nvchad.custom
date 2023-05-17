@@ -3,10 +3,10 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
 local opts = {
   sources = {
-        null_ls.builtins.formatting.prettier,
-        null_ls.builtins.formatting.stylua,
-        null_ls.builtins.diagnostics.eslint,
-        null_ls.builtins.completion.spell,
+    null_ls.builtins.formatting.prettier,
+    null_ls.builtins.formatting.stylua,
+    null_ls.builtins.diagnostics.eslint,
+    null_ls.builtins.completion.spell,
 
     -- go
     null_ls.builtins.formatting.gofmt,
