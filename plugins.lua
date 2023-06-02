@@ -74,6 +74,10 @@ local plugins = {
     "NvChad/nvterm",
     enabled = false,
   },
+  {
+    "wakatime/vim-wakatime",
+    lazy = false,
+  },
 }
 
 return plugins
