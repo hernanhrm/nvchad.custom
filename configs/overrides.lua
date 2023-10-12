@@ -19,13 +19,30 @@ M.treesitter = {
 		"json",
 		"python",
 		"python",
+		"svelte",
+		"astro",
 	},
-	indent = {
+	autotag = {
 		enable = true,
-		-- disable = {
-		--   "python"
-		-- },
+		filetypes = {
+			"html",
+			"javascript",
+			"typescript",
+			"javascriptreact",
+			"typescriptreact",
+			"svelte",
+			"vue",
+			"tsx",
+			"jsx",
+			"rescript",
+			"css",
+			"lua",
+			"xml",
+			"php",
+			"markdown",
+		},
 	},
+	indent = { enable = true },
 	auto_install = true,
 }
 
@@ -40,13 +57,16 @@ M.mason = {
 		"html-lsp",
 		"typescript-language-server",
 		"prettier",
+		"prettierd",
 		"eslint-lsp",
 		"js-debug-adapter",
+		"svelte-language-server",
+		"astro-language-server",
+		"emmet-language-server",
 
 		-- golang stuff
 		"gopls",
 		"goimports",
-		"goimports_reviser",
 		"golines",
 
 		-- python
