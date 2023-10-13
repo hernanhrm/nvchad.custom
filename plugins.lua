@@ -19,6 +19,41 @@ local plugins = {
 			require("plugins.configs.lspconfig")
 			require("custom.configs.lspconfig")
 		end,
+		opts = {
+			-- make sure mason installs the server
+			servers = {
+				-- html
+				html = {
+					filetypes = {
+						"html",
+						"javascript",
+						"javascriptreact",
+						"javascript.jsx",
+						"javascript.svelte",
+						"javascript.astro",
+						"typescript",
+						"typescriptreact",
+						"typescript.tsx",
+					},
+				},
+				-- Emmet
+				emmet_ls = {
+					init_options = {
+						html = {
+							options = {
+								-- For possible options, see: https://github.com/emmetio/emmet/blob/master/src/config.ts#L79-L267
+								["bem.enabled"] = true,
+							},
+						},
+					},
+				},
+				-- CSS
+				cssls = {},
+				tailwindcss = {
+					filetypes_exclude = { "markdown" },
+				},
+			},
+		},
 	},
 	{
 		"jose-elias-alvarez/null-ls.nvim",
@@ -243,6 +278,15 @@ local plugins = {
 			"nvim-treesitter/nvim-treesitter",
 		},
 		lazy = false,
+	},
+	{
+		"roobert/tailwindcss-colorizer-cmp.nvim",
+		-- optionally, override the default options:
+		config = function()
+			require("tailwindcss-colorizer-cmp").setup({
+				color_square_width = 2,
+			})
+		end,
 	},
 }
 

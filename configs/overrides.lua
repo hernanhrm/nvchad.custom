@@ -63,6 +63,7 @@ M.mason = {
 		"svelte-language-server",
 		"astro-language-server",
 		"emmet-language-server",
+		"tailwindcss-language-server",
 
 		-- golang stuff
 		"gopls",
