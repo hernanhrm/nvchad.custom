@@ -4,7 +4,7 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 local lspconfig = require("lspconfig")
 local util = require("lspconfig/util")
 
-local servers = { "html", "tsserver", "eslint", "lua_ls", "pyright" }
+local servers = { "tsserver", "eslint", "lua_ls", "pyright", "svelte" }
 
 for _, lsp in ipairs(servers) do
 	lspconfig[lsp].setup({
@@ -28,4 +28,10 @@ lspconfig.gopls.setup({
 			},
 		},
 	},
+})
+
+lspconfig.html.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+	filetypes = { "html", "svelte" },
 })

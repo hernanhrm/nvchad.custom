@@ -77,7 +77,7 @@ M.mason = {
 		"isort",
 
 		-- global
-		"refactoring",
+		-- "refactoring",
 	},
 }
 

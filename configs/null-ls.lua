@@ -25,7 +25,7 @@ local opts = {
 		null_ls.builtins.formatting.sqlformat,
 
 		--refactoring go, js, lua, python and ts
-		null_ls.builtins.code_actions.refactoring,
+		-- null_ls.builtins.code_actions.refactoring,
 	},
 	on_attach = function(client, bufnr)
 		if client.supports_method("textDocument/formatting") then

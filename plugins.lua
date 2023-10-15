@@ -288,6 +288,12 @@ local plugins = {
 			})
 		end,
 	},
+	{
+		"sveltejs/language-tools",
+		config = function()
+			require("configs.lspconfig").svelte.setup()
+		end,
+	},
 }
 
 return plugins
