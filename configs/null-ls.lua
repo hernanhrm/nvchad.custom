@@ -4,7 +4,24 @@ local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 local opts = {
 	sources = {
 		-- javascript
-		null_ls.builtins.formatting.prettier,
+		-- null_ls.builtins.formatting.prettierd,
+		null_ls.builtins.formatting.prettierd.with({
+			filetypes = {
+				"javascript",
+				"typescript",
+				"css",
+				"scss",
+				"html",
+				"svelte",
+				"json",
+				"yaml",
+				"markdown",
+				"graphql",
+				"md",
+				"txt",
+			},
+			-- only_local = "node_modules/.bin",
+		}),
 		null_ls.builtins.diagnostics.eslint,
 
 		-- other

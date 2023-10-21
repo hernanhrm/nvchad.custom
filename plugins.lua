@@ -50,7 +50,10 @@ local plugins = {
 				-- CSS
 				cssls = {},
 				tailwindcss = {
-					filetypes_exclude = { "markdown" },
+					filetypes = {
+						"html",
+						"svelte",
+					},
 				},
 			},
 		},
@@ -272,6 +275,20 @@ local plugins = {
 		"nvim-lua/plenary.nvim",
 	},
 	{
+		"hrsh7th/nvim-cmp",
+		dependencies = {
+			{ "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
+		},
+		opts = function(_, opts)
+			-- original LazyVim kind icon formatter
+			local format_kinds = opts.formatting.format
+			opts.formatting.format = function(entry, item)
+				format_kinds(entry, item) -- add icons
+				return require("tailwindcss-colorizer-cmp").formatter(entry, item)
+			end
+		end,
+	},
+	{
 		"Jezda1337/nvim-html-css",
 		dependencies = {
 			"hrsh7th/nvim-cmp",
@@ -280,19 +297,18 @@ local plugins = {
 		lazy = false,
 	},
 	{
-		"roobert/tailwindcss-colorizer-cmp.nvim",
-		-- optionally, override the default options:
-		config = function()
-			require("tailwindcss-colorizer-cmp").setup({
-				color_square_width = 2,
-			})
-		end,
-	},
-	{
 		"sveltejs/language-tools",
 		config = function()
 			require("configs.lspconfig").svelte.setup()
 		end,
+	},
+	{
+		"NvChad/nvim-colorizer.lua",
+		opts = {
+			user_default_options = {
+				tailwind = true,
+			},
+		},
 	},
 }
 
