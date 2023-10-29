@@ -71,6 +71,36 @@ M.telescope = {
 			"<cmd> Telescope git_files<cr>",
 			"Find git files",
 		},
+
+		["<leader>ff"] = {
+			"<cmd> Telescope find_files hidden=true<cr>",
+			"Find git files",
+		},
+		["<leader>fb"] = {
+			"<cmd> Telescope buffers<cr>",
+			"See open buffers",
+		},
+
+		["<C-9>"] = {
+			function(prompt_bufnr)
+				-- local selection = require("telescope.actions").get_selected_entry()
+				-- pcall(vim.api.nvim_buf_delete, selection.bufnr, {})
+				local current_picker = require("telescope.actions.state").get_current_picker(prompt_bufnr)
+				local prompt = current_picker:_get_prompt()
+				print(prompt)
+			end,
+		},
+	},
+	i = {
+		["<C-/>"] = {
+			function(prompt_bufnr)
+				-- local selection = require("telescope.actions").get_selected_entry()
+				-- pcall(vim.api.nvim_buf_delete, selection.bufnr, {})
+				local current_picker = require("telescope.actions.state").get_current_picker(prompt_bufnr)
+				local prompt = current_picker:_get_prompt()
+				print(prompt)
+			end,
+		},
 	},
 }
 

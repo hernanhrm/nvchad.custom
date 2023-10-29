@@ -241,6 +241,7 @@ local plugins = {
 	},
 	{
 		"editorconfig/editorconfig-vim",
+		lazy = false,
 	},
 	{
 		"tpope/vim-dadbod",
